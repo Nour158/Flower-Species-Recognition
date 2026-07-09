@@ -1,0 +1,2 @@
+Upload a Flower Image 🌸,Prediction Result,timestamp
+.gradio\flagged\Upload a Flower Image 🌸\4b37e8876587956c9121\8713388322_e5ae26263b_n.jpg,"{""label"": ""tulip"", ""confidences"": [{""label"": ""tulip"", ""confidence"": 0.9999525547027588}, {""label"": ""rose"", ""confidence"": 2.56679231824819e-05}, {""label"": ""daisy"", ""confidence"": 1.1875390555360354e-05}, {""label"": ""dandelion"", ""confidence"": 8.353580597031396e-06}, {""label"": ""sunflower"", ""confidence"": 1.5324378637160407e-06}]}",2026-07-09 16:51:57.410777
