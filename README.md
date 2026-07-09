@@ -188,4 +188,4 @@ Flower Recognition Dataset containing five classes:
 * **Nourallah Ghonim**
 * **Mariam Eladawy**
 * **Jaslim Mohamed**
-* **Doha Ismail **
+* **Doha Ismail**
