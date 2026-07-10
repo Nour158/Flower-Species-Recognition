@@ -43,6 +43,7 @@ The model classifies images into the following categories:
 * Scikit-learn
 * Pillow
 * Gradio
+* React
 
 ---
 
@@ -57,15 +58,28 @@ Flower-Species-Recognition/
 ├── requirements.txt
 ├── .gitignore
 │
+├── frontend/                      # React.js web interface
+│   ├── src/                       # React source code
+│   ├── public/                    # Static assets
+│   ├── package.json               # Node.js dependencies
+│   ├── vite.config.js             # Vite configuration
+│   └── index.html                 # Entry HTML file
+│
+├── backend/                       # FastAPI backend for React UI
+│   ├── main.py                    # API server
+│   ├── requirements.txt           # Python dependencies
+│   └── models/
+│       └── best_densenet121_flowers.pth
+│
 ├── outputs/
 │   └── train/
 │       └── best_densenet121_flowers.pth
 │
-├── architecture/
+├── architecture/                  # Model architecture diagrams
 │
-├── figures/
+├── figures/                       # Figures and visualizations
 │
-└── dataset/
+└── dataset/                       # Flower dataset
 ```
 
 ---
@@ -108,9 +122,13 @@ The trained model is evaluated using:
 
 ---
 
-## 🖥 Interactive Application
+## 🖥 Interactive Applications
 
-The project includes a Gradio web application for real-time flower classification.
+This project provides **two user interfaces** for flower classification:
+
+### 🌸 Option 1 – Gradio Interface
+
+The project includes a simple Gradio web application for real-time flower classification.
 
 Run the application:
 
@@ -118,7 +136,91 @@ Run the application:
 python app.py
 ```
 
-Then open the local Gradio link in your browser and upload a flower image to receive predictions.
+Then open the local Gradio URL displayed in the terminal and upload a flower image to receive predictions.
+
+---
+
+### ⚛️ Option 2 – React Web Interface
+
+A modern React.js frontend is also included, powered by a FastAPI backend that serves the trained DenseNet121 model.
+
+#### Step 1 – Start the Backend
+
+Navigate to the backend directory:
+
+```bash
+cd backend
+```
+
+Create and activate a virtual environment.
+
+**Windows**
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Install the required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the FastAPI server:
+
+```bash
+uvicorn main:app --reload --port 8000
+```
+
+The backend API will be available at:
+
+```text
+http://localhost:8000
+```
+
+API documentation:
+
+```text
+http://localhost:8000/docs
+```
+
+---
+
+#### Step 2 – Start the React Frontend
+
+Open a new terminal and navigate to the frontend directory:
+
+```bash
+cd frontend
+```
+
+Install the required packages:
+
+```bash
+npm install
+```
+
+Start the React application:
+
+```bash
+npm run dev
+```
+
+Open your browser and visit:
+
+```text
+http://localhost:5173
+```
+
+The React application communicates with the FastAPI backend to perform real-time flower classification.
 
 ---
 
@@ -132,13 +234,11 @@ Flower_Recognition.ipynb
 
 Run all cells to:
 
-* Prepare the dataset
-* Train the model
-* Evaluate performance
-* Save the trained model
-* Generate visualizations
-
----
+- Prepare the dataset
+- Train the DenseNet121 model
+- Evaluate model performance
+- Save the trained model
+- Generate visualizations and performance metrics
 
 ## 📦 Installation
 
